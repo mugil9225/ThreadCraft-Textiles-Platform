@@ -11,9 +11,6 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Frontend
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -26,12 +23,14 @@ jobs:
           cache-dependency-path: './Frontend/package-lock.json'
 
       - name: Install Frontend Dependencies
-        run: npm ci
+        run: |
+          cd Frontend
+          npm ci
 
       - name: Build Optimized Production Bundle
-        run: npm run build
-        env:
-          VITE_BASE_URL: /ThreadCraft-Textiles-Platform/
+        run: |
+          cd Frontend
+          npm run build
 
       - name: Deploy Compiled Static Assets to GitHub Pages Branch
         uses: JamesIves/github-pages-deploy-action@v4
