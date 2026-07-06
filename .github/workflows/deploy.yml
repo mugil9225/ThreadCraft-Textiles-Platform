@@ -11,6 +11,9 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Frontend
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -18,19 +21,15 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node_modules-version: 20
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: './Frontend/package-lock.json'
 
       - name: Install Frontend Dependencies
-        run: |
-          cd Frontend
-          npm ci
+        run: npm ci
 
       - name: Build Optimized Production Bundle
-        run: |
-          cd Frontend
-          npm run build
+        run: npm run build
         env:
           VITE_BASE_URL: /ThreadCraft-Textiles-Platform/
 
