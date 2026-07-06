@@ -1,0 +1,56 @@
+/* =========================================================================
+   THREADCRAFT TEXTILES UNIFIED APPLICATION DEFAULT GENERAL INTERFACE STYLES
+   ========================================================================= */
+.product-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* =========================================================================
+   UNIVERSAL ENTERPRISE RETAIL WEB INVOICE NATIVE PRINT MEDIA OVERRIDE STYLES
+   ========================================================================= */
+@media print {
+  /* 1. Hides absolutely every screen element to provide a clean printing canvas */
+  html, body, #root, div, iframe, marquee, nav, navbar, main, form, input, button, hr, select, ul, li, h2, h3, h4, h5, h6, p, span, img {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* 2. Forces structural text printing layout parameters visibility override specifically for target invoice element */
+  div[id="printable-invoice-area"], 
+  div[id="printable-invoice-area"] *, 
+  #printable-invoice-area, 
+  #printable-invoice-area * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* 3. Establishes pristine full width high contrast black ink layouts parameters positioning canvas rules */
+  div[id="printable-invoice-area"], #printable-invoice-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: 2px solid #000000 !important;
+    padding: 30px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Formatting alignments descriptors text variables components lines inside printed sheets */
+  div[id="printable-invoice-area"] strong, #printable-invoice-area strong {
+    font-weight: bold !important;
+    color: #000000 !important;
+  }
+}
